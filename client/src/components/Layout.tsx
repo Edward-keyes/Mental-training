@@ -8,6 +8,7 @@ import {
   ClipboardCheck, 
   Trophy,
   Calendar,
+  Zap,
   Menu,
   X
 } from "lucide-react";
@@ -21,6 +22,7 @@ interface LayoutProps {
 const navItems = [
   { path: "/", label: "首页", icon: Home },
   { path: "/training", label: "训练中心", icon: Gamepad2 },
+  { path: "/daily-challenge", label: "每日挑战", icon: Zap, highlight: true },
   { path: "/plans", label: "训练计划", icon: Calendar },
   { path: "/dashboard", label: "数据面板", icon: BarChart3 },
   { path: "/assessment", label: "能力评估", icon: ClipboardCheck },
@@ -58,18 +60,21 @@ export default function Layout({ children }: LayoutProps) {
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = location === item.path;
+                const isHighlight = 'highlight' in item && item.highlight;
                 return (
                   <Link key={item.path} href={item.path}>
                     <motion.div
                       className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all cursor-pointer ${
                         isActive 
                           ? "bg-primary/20 text-primary" 
+                          : isHighlight
+                          ? "text-yellow-500 hover:text-yellow-400 hover:bg-yellow-500/10"
                           : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                       }`}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <Icon className="w-4 h-4" />
+                      <Icon className={`w-4 h-4 ${isHighlight && !isActive ? 'animate-pulse' : ''}`} />
                       <span className="text-sm font-medium">{item.label}</span>
                     </motion.div>
                   </Link>

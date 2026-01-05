@@ -155,6 +155,12 @@ export default function Home() {
                     开始评估
                   </Button>
                 </Link>
+                <Link href="/daily-challenge">
+                  <Button size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600">
+                    <Zap className="w-5 h-5 mr-2" />
+                    每日挑战
+                  </Button>
+                </Link>
                 <Link href="/training">
                   <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary/50 hover:bg-primary/10">
                     <BookOpen className="w-5 h-5 mr-2" />

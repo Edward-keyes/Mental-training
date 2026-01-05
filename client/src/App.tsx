@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Assessment from "./pages/Assessment";
 import Achievements from "./pages/Achievements";
 import Plans from "./pages/Plans";
+import DailyChallenge from "./pages/DailyChallenge";
 
 // 训练模块页面
 import SchulteTable from "./pages/training/SchulteTable";
@@ -29,6 +30,7 @@ function Router() {
       <Route path="/assessment" component={Assessment} />
       <Route path="/achievements" component={Achievements} />
       <Route path="/plans" component={Plans} />
+      <Route path="/daily-challenge" component={DailyChallenge} />
       
       {/* 训练模块路由 */}
       <Route path="/training/schulte" component={SchulteTable} />
